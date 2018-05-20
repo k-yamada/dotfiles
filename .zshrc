@@ -1,8 +1,8 @@
 ########################################
 # 環境変数
 export LANG=ja_JP.UTF-8
-export EDITOR=emacs
-export PATH="$HOME/bin:$PATH"
+export EDITOR=vim
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -186,7 +186,8 @@ function title {
 }
 
 # /etc/profile.d/以下の設定を読み込む
-for i in /etc/profile.d/*.sh ; do
+mkdir -p ~/profile.d
+for i in ~/profile.d/*.sh ; do
     if [ -r "$i" ]; then
         if [ "${-#*i}" != "$-" ]; then
             source "$i"
